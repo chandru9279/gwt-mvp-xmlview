@@ -1,0 +1,10 @@
+<module>
+
+    <inherits name="com.gwt.common.Common"/>
+
+    <generate-with class="com.gwt.extensions.rebind.ExtendedRemoteServiceGenerator">
+        <when-type-assignable class="com.google.gwt.user.client.rpc.RemoteService"/>
+    </generate-with>
+
+</module>
+

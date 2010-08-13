@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<project name="essentials" default="compile-essentials">
+
+  <property environment="env" />
+  
+  <path id="gwt-classpath">
+    <fileset dir="${env.GWT_HOME}">
+      <include name="**/*.jar" />
+    </fileset>
+  </path>
+  
+  <target name="compile-essentials" depends="clean-classes, compile, jar">  
+    <antcall target="clean-classes" />	
+  </target>
+  
+  <target name="clean-classes">
+    <delete failonerror="true">
+      <fileset dir="essentials" includes="**/*.class" />
+	  <fileset file="MANIFEST.MF"/>
+    </delete>
+  </target>
+
+  <target name="compile">
+    <!-- Target directory is same as source directory -->
+    <javac destdir="essentials">
+      <src path="essentials" />
+      <classpath refid="gwt-classpath" />
+    </javac>
+  </target>
+
+  <target name="jar">
+     <delete failonerror="false" file="essentials.jar" />
+     <property name="version.number" value="1.00"/>
+     <buildnumber file="build.number"/>
+     
+     <manifest file="MANIFEST.MF">
+        <!--  <attribute name="Main-Class" value="AboutClass"/> -->
+        <attribute name="Built-By" value="ThoughtWorks"/>
+        <attribute name="Implementation-Version" 
+                 value="${version.number}-b${build.number}"/>         
+        <attribute name="Created-By" value="${version.number}-b${build.number} ThoughtWorks"/>
+     </manifest>
+  
+     <jar destfile="essentials.jar" basedir="essentials" manifest="MANIFEST.MF" />
+   </target>
+ 
+ </project>

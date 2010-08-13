@@ -1,0 +1,8 @@
+<module>
+    <inherits name="com.gwt.common.Common"/>
+
+    <generate-with class="com.gwt.definedview.rebind.DefinedViewGenerator">
+        <when-type-assignable class="com.gwt.definedview.client.DefinedView"/>
+    </generate-with>
+
+</module>

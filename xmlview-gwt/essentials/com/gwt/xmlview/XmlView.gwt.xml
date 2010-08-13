@@ -1,0 +1,8 @@
+<module>
+    <inherits name="com.gwt.common.Common"/>
+
+    <generate-with class="com.gwt.xmlview.rebind.XmlViewGenerator">
+        <when-type-assignable class="com.gwt.xmlview.client.XmlView"/>
+    </generate-with>
+
+</module>
